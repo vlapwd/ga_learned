@@ -1,0 +1,14 @@
+name: Hello, World!
+# pushイベントを契機に実行
+on: push
+
+# 中身
+jobs:
+  # jobID jobsのキーとしてユニークであること
+  build:
+    name: Greeting
+    # 実行する仮想環境
+    runs-on: ubuntu-latest
+    # 処理
+    steps:
+      - run: echo "Hello, World!"
