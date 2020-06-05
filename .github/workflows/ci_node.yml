@@ -3,13 +3,21 @@ on: push
 
 jobs:
   unit-test:
+    # actions tabを開いた時の名前
     name: Unit Test
     runs-on: ubuntu-latest
     steps:
+      # 1ステップ1プロセス
+      # nameは省略できる
       - name: Checkout
+        # public repository(https://github.com/actions/checkout)のアクションを実行
+        # @のバージョン指定必須（タグ、ブランチ、コミットハッシュで指定できる）
+        # workfrow実行中のrepositoryのアクション、dockerレジストリのイメージも使える
         uses: actions/checkout@v2.0.0
       - name: Set Node.js 12.X
         uses: actions/setup-node@v1.3.0
+        # このアクションのパラメータ
+        # INPUT_をつけた環境変数としてアクションに渡される
         with:
           node-version: 12.x
       - name: Install dependencies
